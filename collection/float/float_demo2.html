@@ -1,0 +1,96 @@
+<!--实现多段文字垂直和水平居中-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>float_demo2</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.div1{
+			width: 100%;
+			overflow: hidden;
+			margin-top: 20px;
+		}
+		.div2,.div3,.div7{
+			float: left;
+			color: white;
+			width: 14%;
+			height: 190px;
+			display: block;
+			text-align: center;
+			background-color: black;
+		}
+		.div3,.div7{
+			margin-left:1.5%;
+		}
+		.div2{
+			margin-left: 4.25%;
+		}
+		tr{
+			vertical-align:middle;
+			height:190px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="div2">
+		<table>
+			<tr>
+				<td>
+				这是一大段文字要换行的你知道吗？？？？
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div class="div3">
+		<table>
+			<tr>
+				<td>
+				这是一大段文字要换行的你知道吗？？？？
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div class="div3">
+		<table>
+			<tr>
+				<td>
+				这是一大段文字要换行的你知道吗？？？？
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div class="div3">
+		<table>
+			<tr>
+				<td>
+				这是一大段文字要换行的你知道吗？？？？
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div class="div3">
+		<table>
+			<tr>
+				<td>
+				这是一大段文字要换行的你知道吗？？？？
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div class="div7">
+		<table>
+			<tr>
+				<td>
+				这是一大段文字要换行的你知道吗？？？？
+				</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+</body>
+</html>
