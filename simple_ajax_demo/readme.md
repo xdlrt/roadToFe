@@ -26,7 +26,7 @@
 	来自服务器的响应为非XML时，使用responseText属性，且返回字符串形式的响应
 	如demo中的
 		document.getElementById('ajax_div').innerHTML = xmlhttp.responseText;
-	### reponseXM待补充
+	### reponseXML待补充
 - onreadystatechange事件
 	readyState储存有XMLHttpRequest的状态信息，属性值如下：
 > 从 0 到 4 发生变化。
@@ -59,3 +59,19 @@
             xmlhttp.open("GET","test.txt",true);
 			xmlhttp.send();
 			}
+- 如果一个页面需要多次调用Ajax方法，可以设置回调函数
+		var xmlhttp=new XMLHttpRequest();
+		function getDoc(url,cfunc){
+    		xmlhttp.onreadystatechange=cfunc;
+    		xmlhttp.open("GET",url,true);
+    		xmlhttp.send();
+  	  }
+		function myFunction(){
+  		getDoc("test.txt",function(){
+  			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+  				document.getElementById("ajax_div").innerHTML=xmlhttp.responseText;
+  			}
+  		});
+  	  }
+
+	在onclick中事件换成myFunction即可

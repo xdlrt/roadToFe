@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<style type="text/css">
+		.button1{
+			background: #ff8888;
+			color: white;
+			font-weight: bold;
+			width: 100px;
+			height: 40px;
+			border:none;
+			border-radius: 5px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id = "ajax_div">这是原始数据</div>
+	<button class = "button1" onclick = "myFunction()">请求数据</button>
+	<!--注意onclick中的函数！-->
+<script type = "text/javascript">
+	var xmlhttp=new XMLHttpRequest();
+	function getDoc(url,cfunc){
+    	xmlhttp.onreadystatechange=cfunc;
+    	xmlhttp.open("GET",url,true);
+    	xmlhttp.send();
+  	}
+	function myFunction(){
+  		getDoc("test.txt",function(){
+  			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+  				document.getElementById("ajax_div").innerHTML=xmlhttp.responseText;
+  			}
+  		});
+  	}
+</script>
+</body>
+</html>
