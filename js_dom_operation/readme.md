@@ -19,7 +19,7 @@
 `parent.append()`
 
 
-### displayAbbreviation.js
+### displayAbbreviation.js/displayAccesskey.js
 
 在body中添加h1元素节点和dl元素节点
 
@@ -42,4 +42,3 @@
 即abbreviation节点中最后一个文本节点的值。在本例中，firstchild和lastchild作用相同。若<abbr>标签为
 `<abbr title = "Document Object Modal"><em>DOM</em></abbr>`
 则firstchild为`em`节点而不是文本节点
-
