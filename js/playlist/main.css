@@ -1,0 +1,54 @@
+*{margin:0;padding:0}
+body{
+	background-color: #f6f9fc;
+}
+
+li{
+	list-style: none;
+}
+
+.player{
+	width: 200px;
+	margin: 50px auto 0;
+	border: 1px solid #aab4bc;
+}
+
+.player h2{
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 25px;
+	border: 1px solid #dee3e6;
+	background-color:#C0C0C0;
+	padding-left: 10px;	
+	color: #57646e;
+	cursor: pointer;/*指针手势为小手*/
+}
+
+.up{background: url(up.gif) no-repeat 180px center;}
+
+.down{background: url(down.gif) no-repeat 180px center;}
+
+.player ul{
+	width: 200px;
+	font-size: 12px;
+	background: #e9edf2;
+	overflow: hidden;
+}
+
+.player li{
+	width: 200px;
+	float: left;
+}
+
+.player a{
+	display: block;
+	text-decoration: none;
+	line-height: 25px;
+	padding-left: 10px;
+	color: #6b7980;
+}
+
+.player a:hover{
+	background-color: #fff;
+	text-decoration: underline;
+}

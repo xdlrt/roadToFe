@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>播放列表收缩展开</title>
+	<meta http-equip = "Content-Type" content = "text/html" charset = "utf-8">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script text = "text/javascript">
+	function ShowHideUl(){
+		var oDiv = document.getElementById('drop');
+		var oUl = document.getElementById('the_key');
+		var oH2 = document.getElementById('the_click');
+		if (oUl.style.display == 'none') {
+			oH2.className = 'up';
+			oUl.style.display = 'block';
+		}
+		else{
+			oH2.className = 'down';
+			oUl.style.display = 'none';
+		}
+	}	
+	</script>
+</head>
+<body>
+	<div id = "drop" class = "player">
+		<h2 class = "up" id = "the_click" onClick = "ShowHideUl()">播放列表</h2>
+		<ul id = "the_key">
+			<li><a href="#">龙卷风</a></li>
+			<li><a href="#">可爱女人</a></li>
+			<li><a href="#">黑色幽默</a></li>
+			<li><a href="#">爷爷泡的茶</a></li>
+			<li><a href="#">你比从前快乐</a></li>
+		</ul>
+	</div>
+</body>
+</html>
