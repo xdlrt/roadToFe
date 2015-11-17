@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>layer</title>
+	<style type="text/css">
+		.the_img{
+			position: absolute;
+			z-index: 1;
+			left: 10px;
+			background: #fccccc;
+			border:2px solid #fcc3cd;
+			border-radius: 5px;
+			color: red;
+			width: 150px;
+			height: 50px;
+		}
+		.the_input{
+			position: absolute;
+			opacity: 0;
+			z-index: 2;
+			/*避免input文字溢出按钮*/
+			left: -60px;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<button class = "the_img">上传文件</button>
+	<input type="file" class = "the_input">
+</body>
+</html>
