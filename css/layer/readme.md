@@ -88,3 +88,7 @@ css源码：
 			/*需要和背景色一致*/
 			background: black;	
 		}
+
+### no-z-index实现
+
+来自杨文强
