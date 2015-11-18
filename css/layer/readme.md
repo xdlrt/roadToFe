@@ -42,3 +42,49 @@ css源码：
 			left: -60px;
 			height: 50px;
 		}
+
+## 2015.11.18
+### 利用after伪元素和z-index实现类fieldset标签效果
+
+关键是令after伪类的content属性，设置背景色和高度来模拟线条。
+
+html源码：
+
+		<div class="container">
+			<p class="line">
+				<span>我在上面</span>
+			</p>
+		</div>
+
+css源码：
+
+		.container{
+			position: relative;
+			width: 60%;
+			margin: 150px auto;
+		}
+		.container p::after{
+			/*比span的值小即可*/
+			z-index: 0;
+			top: 10px;
+			left: 0;
+			right: 0;
+			/*决定线条粗细*/
+			height: 2px;
+			/*内容为空*/
+			content: "";
+			/*绝对定位使伪元素处于正下方*/
+			position: absolute;
+			background-color: #f3f3f3;
+		}
+		.line{
+			text-align: center;
+		}
+		.line span{
+			padding: 0 10px;
+			position: relative;
+			z-index: 1;
+			color: #a3a3a3;
+			/*需要和背景色一致*/
+			background: black;	
+		}
