@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<htmdl>
+<head>
+	<title>111</title>
+	<meta http-equip = "Content-Type" content = "text/html" charset = "utf-8">
+	<style type="text/css">
+	body{font-family: "Microsoft YaHei";}
+	
+	label{
+		display:block;
+		margin-bottom: 20px;
+	}
+	
+	div {
+		width: 200px;
+		height: 50px;
+		padding: 20px 15px 0px;
+		background-color: #000;
+		color: #ccc;
+		border: 5px solid yellow;
+		display: none;
+	}
+	</style>
+</head>
+<body>
+<label onmouseover = "Over()" onmouseout = "Out()">
+	<input type = "checkbox">一句歌词
+</label>
+<div id = "lpp">陪你把独自孤单活成了勇敢</div>
+<script type="text/javascript">
+	function Over() {
+		var feifei = document.getElementById('lpp');
+		feifei.style.display = 'block';
+	}
+	function Out(){
+		var feifei = document.getElementById('lpp');
+		feifei.style.display = 'none';
+	}
+</script>
+</body>
+</html>

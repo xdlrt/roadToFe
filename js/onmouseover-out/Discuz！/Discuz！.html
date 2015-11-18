@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Discuz!</title>
+	<meta http-equip = "Content-Type" content = "text/html" charset = "utf-8">
+	<style type = "text/css">
+	.xiaomian{
+		width: 250px;
+		height: 900px;
+	}
+	.avatar{
+		position: absolute;
+		top: 5px;
+		left: -4px;
+	}
+	.tanchu {
+		position: absolute;
+		top: 10px;
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div class = "xiaomian" ><img src="1.png"></div>
+	<div class = "avatar" onmouseover = "tanchu1()"><img src="3.png"></div>
+	<div id = "tanchu" class = "tanchu" onmouseout = "xiaoshi()"><img src="2.png"></div>
+	<script>
+	function tanchu1(){
+		document.getElementById('tanchu').style.display = "block";
+	}
+	function xiaoshi(){
+		document.getElementById('tanchu').style.display = "none";
+	}
+	</script>
+</body>
+</html>
