@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name = "viewport" content = "width = device-width, initial-scale = 1, maximum-scale = 1, user-scalable = no">
+	<title>Document</title>
+	<style type="text/css">
+		body {
+		  line-height: 1.6;
+		  font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
+		}
+		* {
+		  margin: 0;
+		  padding: 0;
+		}
+		.mask_transparent {
+			position: fixed;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: #000;
+			opacity: 0.5;
+		}
+		.the_toast {
+			position: fixed;
+			z-index: 3;
+			top: 180px;
+			/*水平居中*/
+			width: 7.6em;
+			min-height: 7.6em;
+			left: 50%;
+			margin-left: -3.8em;
+			background: rgba(40, 40, 40, 0.75);
+			text-align: center;
+			border-radius: 5px;
+			color: #FFFFFF;
+		}
+		.icon_toast {
+			display: block;
+			margin: 22px 0 0;
+		}
+		/*伪元素添加对号 */
+		.icon_toast::before {
+			/*对号字符*/
+			content: '\2714';
+			color: #FFFFFF;
+			font-size: 55px;
+		}
+		.toast_content {
+			margin: 0 0 15px;
+			font-size: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div id="toast">
+		<!-- 遮罩层防止点击下层内容 -->
+	    <div class="mask_transparent"></div>
+	    <div class="the_toast">
+	        <span class="icon_toast"></span>
+	        <p class="toast_content">已完成</p>
+	    </div>
+	</div>
+</body>
+</html>
