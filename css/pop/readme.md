@@ -1,18 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name = "viewport" content = "width = device-width, initial-scale = 1, maximum-scale = 1, user-scalable = no">
-	<title>Document</title>
-	<style type="text/css">
-		body {
-		  line-height: 1.6;
-		  font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
-		}
-		* {
-		  margin: 0;
-		  padding: 0;
-		}
+# 信息弹出层效果
+## 2015.11.19
+
+> 结构为最外层div包裹两个子div。
+> **div.mask_transparent是为了禁用弹出层弹出后页面上元素。**
+> div.the_toast是弹出层主题，包含一个用于显示符号的span标签和一个显示提示文字的p标签。
+
+> 初始状态下最外层div的display属性应为none，为了便于演示不做设置。
+
+### html源码：
+
+		<div id="toast">
+	    	<div class="mask_transparent"></div>
+	    	<div class="the_toast">
+	       		<span class="icon_toast"></span>
+	        	<p class="toast_content">已完成</p>
+	    	</div>
+		</div>
+
+### css源码：
+		
 		.mask_transparent {
 			position: fixed;
 			/*设置层次顺序，处于最下层*/
@@ -57,16 +63,3 @@
 			margin: 0 0 15px;
 			font-size: 15px;
 		}
-	</style>
-</head>
-<body>
-	<div id="toast">
-		<!-- 遮罩层防止点击下层内容 -->
-	    <div class="mask_transparent"></div>
-	    <div class="the_toast">
-	        <span class="icon_toast"></span>
-	        <p class="toast_content">已完成</p>
-	    </div>
-	</div>
-</body>
-</html>
