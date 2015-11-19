@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<style type="text/css">
+	body{
+		background-color: black;
+		color: white;
+	}
+	</style>
+</head>
+<body>
+	<h2>图片切换DOM操作</h2>
+	<ul>
+		<li><a href="img/1.jpeg" onClick = "ShowPic(this);return false;">anger</a></li>
+		<li><a href="img/2.jpeg" onClick = "ShowPic(this);return false;">contempt</a></li>
+		<li><a href="img/3.jpeg" onClick = "ShowPic(this);return false;">disgust</a></li>
+		<li><a href="img/4.jpeg" onClick = "ShowPic(this);return false;">fear</a></li>
+	</ul>
+	<div><img id = "pic" src="img/1.png" alt="此处应该有图片"></div>
+	<script type="text/javascript">
+		function ShowPic(whichpic){
+			var source = whichpic.getAttribute('href');
+			var picture = document.getElementById('pic');
+			picture.setAttribute("src",source);
+		}
+	</script>
+</body>
+</html>
