@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>object-defination-trap</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var person = {name:"Nicholas"};
+		var people = [{name:"Nicholas"}];
+		var mpeople = [person];
+		console.log(people[0]);//Object {name: "Nicholas"}
+		console.log(person);//Object {name: "Nicholas"}
+		console.log(people[0]===person);//false,person和people[0]只是值相同,并不是同一个对象
+		console.log(people.indexOf(person));//-1,people中找不到person对象
+		console.log(mpeople.indexOf(person));//0,mpeople中可以找到
+	</script>
+</body>
+</html>
