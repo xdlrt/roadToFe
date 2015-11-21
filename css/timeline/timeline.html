@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style type = "text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		.timeline li{
+			position: relative;
+		}
+		.timeline{
+			background: url(1.png) repeat-y scroll 10% 0;
+			margin-top: 5%;
+		}
+		.content{
+			background: #3594cb;
+			color: #fff;
+			font-size: 1.5em;
+			margin-left: 15%;
+			margin-right: 5%;
+			margin-bottom: 20px;
+			padding: 20px 20px;
+			border-radius: 5px;
+		}
+		@media(max-width: 640px){
+			.content{
+				margin-left: 20%;
+			}
+			#time{
+				position: absolute;
+				left: 73px;
+				top:29px;
+				color: black;
+			}
+		}
+		.content p{
+			word-break:break-all;
+		}
+		.time{
+			position: absolute;
+			font-size: 0.5em;
+			left: 10%;
+			margin-left: -65px;
+			top:20px;
+			color: #a3a3a3;
+		}
+		.round{
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			background: url(4.png) no-repeat scroll 0 0;
+			left: 10%;
+			/*margin-left=-(width/2-timeline.width/2)*/
+			margin-left: -10px;
+		}
+	</style>
+</head>
+<body>
+	<ul class = "timeline">
+		<li>
+			<div class = "time" id = "time">2015.11.20</div>
+			<div class = "round"></div>
+			<div class = "content">
+				<p>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。Bootstrap 是最受欢迎的 HTML、CSS 和 JS  WEB 项目。用于开发响应式布局、移动设备优先的 WEB 项目。</p>
+			</div>
+		</li>
+		<li>
+			<div class = "time" id = "time">2014.11.19</div>
+			<div class = "round"></div>
+			<div class = "content">
+				<p>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。Bootstrap 是最受欢迎的 HTML、CSS 和 JS  WEB 项目。用于开发响应式布局、移动设备优先的 WEB 项目。</p>
+			</div>
+			<div class = "content">
+				<p>My experience with meth and meth addiction comes from the time I have worked as a traveling contractor and from when I had another business of my own. When comparing Breaking Bad the television series with real life, I find that the meth heads on the show are actually more subdued than they are in reality.</p>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>
