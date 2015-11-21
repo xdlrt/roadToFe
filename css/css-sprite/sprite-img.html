@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset = "utf-8">
+<title></title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-size: 0.75em;
+    }
+    a{
+        text-decoration: none;
+        float:right;
+    }
+    button{
+        width: 190px;
+        height: 37px;
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    .text{
+        display:block;
+        margin-bottom:15px;
+        height: 30px;
+        width: 190px;
+        border: none;
+        text-indent: 20px;
+    }
+    .middle{
+        vertical-align: middle;
+    }
+    .main{
+        background: #d5f4f5;
+        width: 190px;
+        padding: 10px 20px;
+    }
+    .bg{
+        background:url(http://img.mukewang.com/539a972b00013e9102280177.jpg);
+    }
+    .bg1{
+        position: 0 0;
+    }
+    .bg2{
+        background-position: 0 -39px;
+    }
+</style>
+</head>
+<body>
+<div class = "main">
+    <form>
+        <input type = "text" class = "text" placeholder = "邮箱/手机号/用户名">
+        <input type = "password" class = "text" placeholder = "请输入密码">
+        <input type = "checkbox" for = "check" class = "middle">
+        <label id = "check" class = "middle">下次自动登录</label>
+        <a href="##">忘记密码?</a>
+        <button class = "bg bg1"></button>
+        <button class = "bg bg2"></button>
+    </form>
+</div>
+</body>
+</html>
