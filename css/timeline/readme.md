@@ -62,3 +62,11 @@
 				color: black;
 			}
 		}
+
+### tips：
+
+		word-warp:break-word;
+		//用来标明是否允许浏览器在单词内进行断句，这是为了防止当一个字符串太长而找不到它的自然断句点时产生溢出现象。
+
+		word-break:break-all;
+		//css的 word-break 属性用来标明怎么样进行单词内的断句,避免浪费空间。
