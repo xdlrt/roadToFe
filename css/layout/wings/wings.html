@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>box-extension</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			color: red;
+			text-align: center;
+			font-weight: bold;
+		}
+		.container{
+			width: 100%;
+		}
+		.col{
+			float: left;
+		}
+		.center{
+			width: 100%;
+			min-height: 500px;
+			background: #000;
+		}
+		.main{
+			margin-left: 310px;
+			margin-right: 210px;
+			min-height: 500px;
+		}
+		.left{
+			/*利用负边距覆盖在center上且居左*/
+			margin-left: -100%;
+			width: 300px;
+			min-height: 500px;
+			background: blue;
+		}
+		.right{
+			margin-left: -200px;
+			min-height: 500px;
+			width: 200px;
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class = "container">
+		<div class="center col">
+			<div class="main">这是一行字</div>
+		</div>
+		<div class="left col">这是一行字</div>
+		<div class="right col">这是一行字</div>
+	</div>
+</body>
+</html>
