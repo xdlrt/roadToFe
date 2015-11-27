@@ -1,6 +1,7 @@
 # 双飞翼布局
 ## 2015.11.27
 
+### wings.html
 在研究负边距时发现始于淘宝UED的双飞翼布局，其中主列优先加载的思想很有借鉴意义，故自己尝试实现。
 
 >### 双飞翼布局实现效果
@@ -122,3 +123,55 @@
 			width: 200px;
 			background: yellow;
 		}
+
+### holyGrail.html
+
+在双飞翼布局之前，Kevin Cornell提出了圣杯布局，同样可以实现中间列自适应且优先加载的布局。
+
+和双飞翼布局最大的不同是，其将中间三列放在一个div中，为此div设置padding，从而为左右两列腾出位置，而左右两列除了需要利用负边距实现定位外，还需要利用相对定位消除IE6中的BUG。
+
+圣杯布局在实现时需要6个css属性，而双飞翼只需要4个，更简洁，更优雅。
+
+两种布局的初衷都是在实现正常需求的情况下达到兼容，随着时间发展，慢慢已经不再需要兼容IE6，甚至IE7/8.
+
+**技术是一份财富，永远不会随时间褪色。**
+
+完整源码：
+
+### html
+
+		<div id="bd">
+			<div class="main">main</div>
+			<div class="sub">sub</div>
+			<div class="extra">extra</div>
+		</div>  
+
+### css
+
+		.main {       
+	      float: left;      
+	      width: 100%;  
+	      background:#39c;
+	      height:300px;
+    	} 
+    	.sub {      
+      	float: left;       
+      	width: 190px;       
+      	margin-left: -100%;  
+      	background:#f60;
+      	height:300px;
+      	position:relative;
+      	left:-190px;
+    	}  
+    	.extra {       
+	      float: left;       
+	      width: 230px;       
+	      margin-left: -230px;
+	      background:#666;
+	      height:300px;
+	      position:relative;
+	      right:-230px;
+    	} 
+    	#bd {       
+      	padding: 0 230px 0 190px;  
+    	}

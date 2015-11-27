@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	  .main {       
+	    float: left;      
+	    width: 100%;  
+	    background:#39c;
+	    height:300px;
+    } 
+    .sub {      
+      float: left;       
+      width: 190px;       
+      margin-left: -100%;  
+      background:#f60;
+      height:300px;
+      position:relative;
+      left:-190px;
+    }  
+    .extra {       
+	    float: left;       
+	    width: 230px;       
+	    margin-left: -230px;
+	    background:#666;
+	    height:300px;
+	    position:relative;
+	    right:-230px;
+    } 
+    #bd {       
+      padding: 0 230px 0 190px;  
+    }
+	</style>
+</head>
+<body>
+	  <div id="bd">                   
+      <div class="main">main</div>                
+      <div class="sub">sub</div>                   
+      <div class="extra">extra</div>       
+  	</div>    
+</body>
+</html>
