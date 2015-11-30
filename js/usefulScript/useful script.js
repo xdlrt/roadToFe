@@ -23,3 +23,9 @@ function insertAfter(newElement,targetElement){
 		parent.insertBefore(newElement,targetElement.nextSibling);
 	}
 }
+//生成随机整数，方便从数组中取任意项
+//值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)
+function selectFrom(min,max){
+	var choices = max-min+1;
+	return Math.floor(Math.random()*choices+min);
+}
