@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title> New Document </title>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    .aaa {
+      width: 155px;
+      height: 23px;
+      overflow: hidden;
+    }
+    #inputone {
+      position: absolute;
+      background: transparent;
+      outline: none;
+    }
+    .spanone {
+      margin-left: 50px;
+      line-height: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="aaa"id="aaa">
+    <input id="inputone"type="text"value=""autocomplete="off">
+    <span id="spanone"class="spanone">点击</span>
+  </div>
+</body>
+
+
+<script type="text/javascript">
+  var inputone = document.getElementById('inputone');
+  var spanone = document.getElementById('spanone');
+  var diva = document.getElementById('aaa');
+
+  inputone.onfocus = function() {
+    spanone.style.display = "none";
+  }
+
+  inputone.onblur = function() {
+    if (inputone.value.length == 0) {
+      spanone.style.display = "block";
+    }
+  }
+</script>
+</html>

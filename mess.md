@@ -30,3 +30,13 @@ maximum-scale - 允许用户缩放到的最大比例
 
 		html{font-size:10px;}
 即1rem = 10px
+- ### focus事件和blur事件
+
+		link[i].onfocus = function(){
+				function XXX();
+			}
+		link[i].blur = function(){
+				function XXX();
+			}
+- ### window.onload
+window.onload是在dom文档树和所有文件加载完之后执行一个函数。
