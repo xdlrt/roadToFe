@@ -24,5 +24,3 @@ maximum-scale - 允许用户缩放到的最大比例
 
 		html{font-size:10px;}
 即1rem = 10px
-
-- web语义化
