@@ -40,3 +40,13 @@ maximum-scale - 允许用户缩放到的最大比例
 			}
 - ### window.onload
 window.onload是在dom文档树和所有文件加载完之后执行一个函数。
+
+- ### json2html jquery实现
+
+		var json ={
+    	"title":"xxx",
+    	"context":"demodemodemo",
+    	"author":"ringotc" 
+		}
+
+		$('<div class="post"> <h1>'+json.title+'</h1> <div class="context">'+json.context+'</div> <p>'+json.author+'</p> </div>').append('body')
