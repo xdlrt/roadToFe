@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>onchange</title>
+</head>
+<body>
+
+<span>转换成大写字母：</span>
+<input type="text" id="fname1" placeholder = "oninput" />
+<br>
+<br>
+<span>转换成大写字母：</span>
+<input type="text" id="fname2" placeholder = "onpropertychange" />
+<br>
+<br>
+<span>转换成大写字母：</span>
+<input type="text" id="fname3" placeholder = "onchange" />
+<br>
+<br>
+<script type="text/javascript">
+	function upperCase(x){	
+		var content = document.getElementById(x).value;
+		document.getElementById(x).value = content.toUpperCase();
+		// 此处document.getElementById(x).value为何不能换成content
+	}
+	var input = document.getElementById('fname1');
+	input.oninput = function(){
+		upperCase('fname');
+	}
+	var input = document.getElementById('fname');
+	input.onpropertychange = function(){
+		upperCase('fname2');
+	}
+	var input = document.getElementById('fname');
+	input.onchange = function(){
+		upperCase('fname3');
+	}
+
+	// input.addEventListener("change",upperCase('fname'),false);
+	// 为何不生效
+</script>
+</body>
+</html>
