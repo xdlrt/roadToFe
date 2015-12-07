@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>横向导航的实现</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*浮动方式实现*/
+		.nav1 li{
+			margin: 20px 0;
+			padding: 20px;
+			border: 1px solid #a3a3a3;
+			list-style: none;
+			float: left;
+			background: #000;
+			color: #fff;
+		}
+		.nav1 a{
+			text-decoration: none;
+			color: #a3a3a3;
+		}
+		.nav1 a:hover{
+			color: #fff;
+		}
+		/*inline-block实现*/
+		.nav2{
+			/*放在第一种方法下面*/
+			padding-top: 200px;	
+		}
+		.nav2 div{
+			display: inline-block;
+			background: #000;
+			color: #a3a3a3;
+			padding: 20px;
+			margin: 20px 0;
+			border: 1px solid #a3a3a3;
+		}
+		.nav2 a{
+			text-decoration: none;
+			color: #a3a3a3;
+		}
+		.nav2 a:hover{
+			color: #fff;
+		}
+		/*table-cell方式实现*/
+		.nav3{
+			margin-top: 130px;
+		}
+		.nav3 div{
+			display: table-cell;
+			background: #000;
+			color: #a3a3a3;
+			border: 1px solid #a3a3a3;
+			padding: 20px;
+		}
+		.nav3 a{
+			text-decoration: none;
+			color: #a3a3a3;
+		}
+		.nav3 a:hover{
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<!-- 浮动方式实现 -->
+	<ul class = "nav1">
+		<li><a href="##">选项1</a></li>
+		<li><a href="##">选项2</a></li>
+		<li><a href="##">选项3</a></li>
+		<li><a href="##">选项4</a></li>
+	</ul>
+	<!-- inline-block实现 -->
+	<!-- http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/ -->
+	<!-- 注释用来清除元素之间的空格实现消除inline-block的默认空隙 -->
+	<div class="nav2">
+		<div><a href="##">选项1</a></div><!--
+	 --><div><a href="##">选项2</a></div><!--
+	 --><div><a href="##">选项3</a></div><!--
+	 --><div><a href="##">选项4</a></div>
+	</div>
+	<!-- table-cell实现 -->
+	<div class="nav3">
+		<div><a href="##">选项1</a></div>
+		<div><a href="##">选项2</a></div>
+		<div><a href="##">选项3</a></div>
+		<div><a href="##">选项4</a></div>
+	</div>
+</body>
+</html>
