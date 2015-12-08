@@ -56,3 +56,15 @@ window.onload是在dom文档树和所有文件加载完之后执行一个函数�
 		}
 
 		$('<div class="post"> <h1>'+json.title+'</h1> <div class="context">'+json.context+'</div> <p>'+json.author+'</p> </div>').append('body')
+- ### 清除浮动
+父级元素后加
+
+		a:after {
+			display: block;
+			clear: both;
+			width: 0;
+			height: 0;
+			visibility: hidden;
+			overflow: hidden;
+			content: " ";
+		}
