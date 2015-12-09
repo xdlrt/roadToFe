@@ -22,23 +22,23 @@
 	function upperCase(x){	
 		var content = document.getElementById(x).value;
 		document.getElementById(x).value = content.toUpperCase();
-		// 此处document.getElementById(x).value为何不能换成content
+		// 此处document.getElementById(x).value不能换成content
+		// document.getElementById(x).value是对新值进行赋值
+		// content中是之前的值
 	}
-	var input = document.getElementById('fname1');
-	input.oninput = function(){
-		upperCase('fname');
+	var input1 = document.getElementById('fname1');
+	input1.oninput = function(){
+		upperCase('fname1');
 	}
-	var input = document.getElementById('fname');
-	input.onpropertychange = function(){
+	// onpropertychange是IE的私有属性
+	var input2 = document.getElementById('fname2');
+	input2.onpropertychange = function(){
 		upperCase('fname2');
 	}
-	var input = document.getElementById('fname');
-	input.onchange = function(){
+	var input3 = document.getElementById('fname3');
+	input3.onchange = function(){
 		upperCase('fname3');
 	}
-
-	// input.addEventListener("change",upperCase('fname'),false);
-	// 为何不生效
 </script>
 </body>
 </html>
