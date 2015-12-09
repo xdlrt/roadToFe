@@ -68,3 +68,8 @@ window.onload是在dom文档树和所有文件加载完之后执行一个函数�
 			overflow: hidden;
 			content: " ";
 		}
+
+- ### 溢出滚动
+CSS中"overflow:scroll"默认是左右，上下都滚动
+如果左右没有超出内容时，用overflow:auto;
+如果左右有超出内容，用overflow-x: hidden;
