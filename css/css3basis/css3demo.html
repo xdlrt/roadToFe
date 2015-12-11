@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3demo</title>
+	<style>
+		div{
+			color: #fff;
+			width: 100px;
+			height: 100px;
+			background: #000;
+			text-align: center;
+			line-height: 100px;
+		}
+		.div1{
+			border-radius: 10px;
+			box-shadow: 10px 10px 5px #888888;
+		}
+		.div2{
+			/*tanslate(x,y)*/
+			-webkit-transform:translate(200px,100px);
+		}
+		.div3{
+			/*rotate(number+deg) deg = degree*/
+			-webkit-transform:rotate(220deg);
+		}
+		.div4{
+			margin:100px;
+			margin-left: 100px;
+			/*scale(x,y)倍数*/
+			-webkit-transform:scale(2,1);
+		}
+		.div5{
+			margin-left: 100px;
+			/*skew(x,y)度数*/
+			-webkit-transform:skew(200deg,200deg);
+			
+		}
+		.div6,.div7,.div8{
+			margin-bottom: 50px;
+			transition:-webkit-transform 2s linear;
+		}
+		/*hover在执行完之后会恢复原状*/
+		.div6:hover{
+			/*x轴方向旋转*/
+			-webkit-transform:rotatex(360deg);
+		}
+		.div7:hover{
+			/*y轴方向旋转*/
+			-webkit-transform:rotatey(360deg);
+		}
+		.div8:hover{
+			/*z轴方向旋转*/
+			-webkit-transform:rotatez(360deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<div class="div3">div3</div>
+	<div class="div4">div4</div>
+	<div class="div5">div5</div>
+	<div class="div6">div6</div>
+	<div class="div7">div7</div>
+	<div class="div8">div8</div>
+</body>
+</html>
