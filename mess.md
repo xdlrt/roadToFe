@@ -73,3 +73,9 @@ window.onload是在dom文档树和所有文件加载完之后执行一个函数�
 CSS中"overflow:scroll"默认是左右，上下都滚动
 如果左右没有超出内容时，用overflow:auto;
 如果左右有超出内容，用overflow-x: hidden;
+
+- ### ifame隐藏，解决上传刷新的问题。（未测试）
+
+- ### 遮罩层半透明
+如果遮罩层中有其它元素，可以只设置background-color的第四个参数使背景实现半透明。
+如果没有，可以直接设置opacity的值。
