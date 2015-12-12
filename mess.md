@@ -10,6 +10,30 @@ user-scalable - 用户是否可以手动缩放
 minimum-scale - 允许用户缩放到的最小比例
 maximum-scale - 允许用户缩放到的最大比例
 
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="email=no"/>
+content 里面的参数：telephone=no 是禁止浏览器自动识别手机号码，email=no 是禁止浏览器自动识别Email。
+
+		body {
+   			font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; /*使用无衬线字体*/
+		}
+
+- ### 定义苹果图标
+
+在网站文件根目录放一个 apple-touch-icon.png 文件，苹果设备保存网站为书签或桌面快捷方式时，就会使用这个文件作为图标，文件尺寸建议为：180px × 180px。
+
+- ### 自定义favicon：
+
+		<link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+- ### 定义浏览器点击行为：
+
+		<a href="tel:020-10086">打电话给:020-10086</a>
+		<a href="sms:10086">发短信给: 10086</a>
+		<a href="mailto:me@22278.club">发送邮件: me@22278.club</a>
+- ### 定义上传文件类型和格式
+
+		<input type=file accept="image/*">
+上面的文件上传框中，accept 可以限制上传文件的类型，参数为 image/\* 是所有图片类型，点击会弹出图库，也可以指定图片格式，参数设置成 image/png 则可以限制图片类型为png；参数如果为 video/* 则是选择视频的意思；accept 还可以设置多个文件格式，语法为 accept="image/gif, image/jpeg" ；
 - ### js绑定onclick事件：
 注意是**onclick**不是**onClick**。
 		var link = document.getElementsByTagName('a');
