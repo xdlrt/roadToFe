@@ -103,3 +103,6 @@ CSS中"overflow:scroll"默认是左右，上下都滚动
 - ### 遮罩层半透明
 如果遮罩层中有其它元素，可以只设置background-color的第四个参数使背景实现半透明。
 如果没有，可以直接设置opacity的值。
+
+- ### 模拟input
+把原始input的opacity值设置为0；

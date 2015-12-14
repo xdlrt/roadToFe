@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模糊查询模拟下拉框</title>
+	<script src = "jQuery.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			position: relative;
+		}
+		input{
+			position: absolute;
+			z-index: 2;
+			width: 200px;
+			height: 40px;
+		}
+		hr{
+			width: 90%;
+			margin: 0 auto;
+		}
+		.arrow{
+			width: 0;
+			height: 0;
+			border: transparent;
+			border: 10px solid #fff;
+			border-top-color:#000;
+			position: absolute;
+			z-index: 10; 
+			left: 220px;
+			top: 10px;
+		}
+		.option{
+			width: 202px;
+			position: absolute;
+			top:40px;
+			border: 1px solid #a3a3a3;
+		}
+		.option li{
+			list-style: none;
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+		}
+		label{
+			display: block;
+			height: 40px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id = "search">
+	<div class="option">
+		<ul id = "default">
+			<li>
+				<label>陕西科技大学</label>
+			</li>
+			<hr>
+			<li>
+				<label>西安邮电大学</label>
+			</li>
+		</ul>
+	</div>
+	<div class = "arrow"></div>
+	<script>
+		// 后台传入json 
+		var json = {
+				"school" : [{
+					"name" : "西安电子科技大学"
+				},{
+					"name" : "西安外国语大学"
+				},{
+					"name" : "陕西师范大学"
+				}]
+		};
+		var json1 = {
+				"school" : [{
+					"name" : "陕西科技大学"
+				},{
+					"name" : "西安邮电大学"
+				}]
+		};
+		var $option = $(".option"); 
+		// 初始下拉列表是隐藏的
+		$option.hide();
+		var $arrow = $(".arrow");
+		// 点击下三角完成显示隐藏下拉菜单
+		$arrow.click(function(){
+			if($option.is(":visible")){
+				$option.hide();
+			}
+			else{
+				$option.show();
+			}
+		})
+		// 焦点处于文本框中时显示下拉框
+		$("#search").focus(function(){
+			$option.show();
+		})
+		// 点击下拉框中元素,将值填入下拉框中并且隐藏下拉框
+		$("label").click(function(){
+			$("#search").val($(this).text());
+			$option.hide();
+		})
+		// 动态监听文本框内容,ajax更新内容
+		$("#search").bind({
+			input:function(){
+				if($("#search").val()){
+					// 回调函数
+					function callback1(){
+						// 移除ul中本来的标签
+						$("ul li,ul hr").remove();
+						// 若只有一个不需要hr标签
+						$("ul").append("<li><label>" + json.school[0].name + "</label></li>");
+						for(var i = 1;i<json.school.length;i++){
+							$("ul").append("<hr><li><label>"+json.school[i].name+"</label></li>");
+						}
+					}
+					callback1();
+				}
+				else{
+					// 回调函数
+					function callback2(){
+						$("ul li,ul hr").remove();
+						$("ul").append("<li><label>" + json1.school[0].name + "</label></li>");
+						for(var i = 1;i<json1.school.length;i++){
+							$("ul").append("<hr><li><label>"+json1.school[i].name+"</label></li>");
+						}
+					}
+					callback2();
+				}
+			}	
+		}) 
+	</script>
+</body>
+</html>
