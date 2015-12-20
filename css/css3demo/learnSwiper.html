@@ -29,19 +29,50 @@
 <body>
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-	    	<div class="swiper-slide blue-slide">slider1</div>
-	    	<div class="swiper-slide red-slide">slider2</div>
-	    	<div class="swiper-slide orange-slide">slider3</div>
+	    	<div class="swiper-slide blue-slide" data-hash="slide1">slider1</div>
+	    	<div class="swiper-slide red-slide" data-hash="slide2">slider2</div>
+	    	<div class="swiper-slide orange-slide" data-hash="slide3">slider3</div>
 		</div>
 	</div>
 	<script src="swiper.min.js"></script>
 	<script>
 		// Swiper初始化
 		var mySwiper = new Swiper('.swiper-container',{
-			// initialSlide：设定初始化时slide的索引，默认0
+			// 设定初始化时slide的索引，默认0
 			// 此时显示的是slider2
 		  	initialSlide :1,
-		  	
+		  	// Slides的滑动方向，可设置水平(horizontal)或垂直(vertical)。
+		  	// 此时是沿垂直方向滑动
+		  	direction : 'vertical',
+		  	// 滑动速度，即slider自动滑动开始到结束的时间（单位ms）。默认300。
+		  	speed:400,
+		  	// 自动切换的时间间隔（单位ms），不设定该参数slide不会自动切换。用户操作后autoplay停止
+		  	// 默认0。
+		  	autoplay:5000,
+		  	// 用户操作swiper之后，是否禁止autoplay。默认为true：停止。
+			// 如果设置为false，用户操作swiper之后自动切换不会停止，每次都会重新启动autoplay。
+			// 操作包括触碰，拖动，点击pagination等。
+			autoplayDisableOnInteraction : false,
+			// 设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状。
+			grabCursor : true,
+			// 自动高度。设置为true时，wrapper和container会随着当前slide的高度而发生变化。
+			// 即内容高度高于初始会撑开容器
+			autoHeight: true,
+			// 设定为true将slide的宽和高取整(四舍五入)以防止某些分辨率的屏幕上文字模糊。
+			roundLengths : true, 
+			// 强制Swiper的高度，当你的Swiper在隐藏状态下初始化时才用得上。这个参数会使自适应失效
+			//全屏  height : window.innerHeight
+			heigth: 300,
+			// 强制Swiper的宽度，当你的Swiper在隐藏状态下初始化时才用得上。这个参数会使自适应失效
+			// 全屏  width : window.innerWidth
+			width:200,
+			// Swiper从3.0开始使用flexbox布局(display: flex)，开启这个设定会在Wrapper上添加等于slides相加的宽高，在对flexbox布局的支持不是很好的浏览器中可能需要用到。
+			setWrapperSize :true,
+			// 如需使用散列导航（有点像锚链接）将此参数设置为true。此外在每个slide处增加data-hash属性。
+			// 这样当你的swiper切换时你的页面url就会加上这个属性的值了，你也可以通过进入页面时修改页面url让swiper在初始化时切换到指定的slide。
+			// 当做复杂开发时这个很有用，因为你不必等待前面slide的切换就可以直接跳转到指定的slide
+			hashnav:true,
+			// 视差效果
 		});
 	</script>
 </body>
