@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>斑马线表格</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		thead{
+			color: #fff;
+			text-align: center;
+			font-size: 40px;
+			background: rgba(0,0,255,0.5);
+		}
+		thead td{
+			padding: 10px;
+		}
+		tbody{
+			font-size: 20px;
+		}
+		table{
+			border: 1px solid #f00;
+			display: block;
+			width: 227px;
+			margin: 50px auto;
+		}
+		/*利用css选择器实现*/
+		/*tbody tr:nth-child(odd){
+			background: rgba(255,0,0,0.5);
+		}
+		tbody tr:nth-child(even){
+			background: rgba(0,255,0,0.5);
+		}*/
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>When</td>
+				<td>Where</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Odd</td>
+				<td>Oddline</td>
+			</tr>
+			<tr>
+				<td>Even</td>
+				<td>Evenline</td>
+			</tr>
+			<tr>
+				<td>Odd</td>
+				<td>Oddline</td>
+			</tr>
+			<tr>
+				<td>Even</td>
+				<td>Evenline</td>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+		// 获取所有的tbody元素
+		var tbody = document.getElementsByTagName('tbody');
+		// 遍历tbody元素
+		for(var i = 0;i < tbody.length;i++){
+			// 定义计步器odd
+			var odd = true;
+			// 获取tbody中的tr元素
+			var tr = tbody[i].getElementsByTagName('tr');
+			// 遍历tr元素
+			for(var j = 0;j < tr.length;j++){
+				// 如果odd计步器为true则odd赋值false,使下次循环进入else
+				if(odd == true){
+					odd = false;
+					tr[j].style.backgroundColor = "rgba(255,0,0,0.5)";
+				}
+				else{
+					odd = true;
+					tr[j].style.backgroundColor = "rgba(0,255,0,0.5)";
+				}
+			}
+		}
+	</script>
+</body>
+</html>
