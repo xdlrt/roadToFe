@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>task0001-2</title>
+	<style>
+	/*主要思路是利用四个宽度很小的div的边框来模拟圆角*/
+		.main {
+			height: 50px;
+			background: #fff;
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+		}
+		/*背景为白色不显示，以实现只显示边框*/
+		.rtop {
+			background: #fff;
+		}
+		.rtop div {
+			height: 1px;
+		}
+		.r1 {
+			background: #000;
+			margin: 0 3px;
+		}
+		.r2 {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			margin: 0 2px;
+		}
+		.r3 {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			margin: 0 1px;
+		}
+		.r4 {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			margin: 0 1px;
+			height: 1px;
+		}
+	</style>
+</head>
+<body>
+	<div class = "rtop">
+		<div class = "r1"></div>
+		<div class = "r2"></div>
+		<div class = "r3"></div>
+		<div class = "r4"></div>
+	</div>
+	<div class = "main"></div>
+	<div class = "rtop">
+		<div class = "r4"></div>
+		<div class = "r3"></div>
+		<div class = "r2"></div>
+		<div class = "r1"></div>
+	</div>	
+</body>
+</html>
