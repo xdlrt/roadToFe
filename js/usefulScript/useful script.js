@@ -29,3 +29,14 @@ function selectFrom(min,max){
 	var choices = max-min+1;
 	return Math.floor(Math.random()*choices+min);
 }
+
+// 添加类
+function addClass(id,className){
+	var element = document.getElementById(id);
+	if(element.className == ""){
+		element.className = className;
+	}
+	else{
+		element.className += " "+className;
+	}
+}

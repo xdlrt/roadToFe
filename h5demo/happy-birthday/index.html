@@ -10,6 +10,19 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+	<div id="loading-big">
+		<div id="loading-center">
+			<div id="loading-center-absolute">
+				<div class="object" id="object_one"></div>
+				<div class="object" id="object_two"></div>
+				<div class="object" id="object_three"></div>
+				<div class="object" id="object_four"></div>
+				<div class="object" id="object_five"></div>
+			</div>
+			<span id="loading-text">没有做大屏幕的适配呀~</span>
+		</div>
+	</div>
+	<div class="warp">
 	<div id="loading">
 		<div id="loading-center">
 			<div id="loading-center-absolute">
@@ -19,7 +32,7 @@
 				<div class="object" id="object_four"></div>
 				<div class="object" id="object_five"></div>
 			</div>
-			<span id="loading-text">不要急，马上就好~</span>
+			<span id="loading-text">即将打开新世界的大门</span>
 		</div>
 	</div>
 	<div class="swiper-container">
@@ -28,7 +41,7 @@
 	        	<div class="mask"></div>
 	        	<div class="slide-1-p">
 	        		<p>妞，生日快乐~</p>
-	        		<p>送你一个大蛋糕</p>
+	        		<p class="ani" swiper-animate-effect="swing infinite" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">送你一个大蛋糕</p>
 	        	</div>
 	        </div>
 	        <div class="swiper-slide slide-2">
@@ -91,8 +104,9 @@
 	        	</div>
 	        </div>
 	    </div>
-	    <!-- 如果需要分页器 -->
+	    <!-- 分页器 -->
 	    <div class="swiper-pagination"></div>
+	</div>
 	</div>
 	<script src="js/swiper-3.3.1.min.js"></script>
 	<script src="js/swiper.animate1.0.2.min.js"></script>
