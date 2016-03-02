@@ -13,4 +13,5 @@ var mySwiper = new Swiper ('.swiper-container', {
 window.onload = function(){
 	var loading = document.getElementById("loading");
 	loading.style.display = "none";
+	console.log("生日快乐");
 }
