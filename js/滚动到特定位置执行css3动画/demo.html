@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			/* 滚动条 */
+			height: 2000px;
+			overflow-x: hidden;
+		}
+		img{
+			position: absolute;
+			top: 400px;
+			width: 200px;
+		}
+		.left{			
+			left: -200px;
+		}
+		.right{
+			right: -200px;
+		}
+		@keyframes left{
+			from{
+				left: -200px;
+			}
+			to{
+				left: 50px;
+			}
+		}
+		@keyframes right{
+			from{
+				right: -200px;
+			}
+			to{
+				right: 50px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<img src="1.jpg" alt="" class="left" id="leftImg">
+	<img src="2.jpg" alt="" class="right" id="rightImg" >
+	<script>
+		var img1 = document.getElementById('leftImg');
+		var img2 = document.getElementById('rightImg');
+		window.onscroll=function(){
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			if(scrollTop >= 400){
+				img1.style.webkitAnimation = "left 0.5s forwards";
+				img1.style.animation = "left 0.5s forwards";
+				img2.style.webkitAnimation = "right 0.5s forwards";
+				img2.style.animation = "right 0.5s forwards";
+			}
+		}
+	</script>
+</body>
+</html>
