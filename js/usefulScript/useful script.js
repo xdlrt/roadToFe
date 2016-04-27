@@ -40,3 +40,8 @@ function addClass(id,className){
 		element.className += " "+className;
 	}
 }
+// 插入body中可自适应高分屏分辨率
+var screenHeight = window.screen.width
+if(window.screen.width > 1400) {
+    document.body.style.zoom = (screenHeight * 0.874) / 1200;
+}
