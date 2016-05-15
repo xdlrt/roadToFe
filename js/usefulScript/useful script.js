@@ -45,3 +45,21 @@ var screenHeight = window.screen.width
 if(window.screen.width > 1400) {
     document.body.style.zoom = (screenHeight * 0.874) / 1200;
 }
+
+// 倒计时
+var wait = 30;
+function countDown(button) {
+    if (button.html() == '0s后重新发送') {
+        button.prop("disabled", false);
+        button.html("发送验证码");
+        wait = 30;
+    } else {
+        button.prop("disabled", true);
+        button.html(wait + 's后重新发送');
+        wait--;
+        setTimeout(function() {
+            countDown(button);
+        },
+        1000);
+    }
+}
