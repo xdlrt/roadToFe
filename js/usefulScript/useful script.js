@@ -72,3 +72,67 @@ function GetQueryString(name){
 	}
 	return null;
 }
+
+var scrollFunc = function (e) {
+	var direct = 0;
+    e = e || window.event;
+    if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件             
+        if (e.wheelDelta > 0) { //当滑轮向上滚
+        }
+        if (e.wheelDelta < 0) { //当滑轮向下滚动
+        }
+    } else if (e.detail) {  //Firefox滑轮事件
+        if (e.detail> 0) { //当滑轮向上滚
+        }
+        if (e.detail< 0) { //当滑轮向下滚动时
+        }
+    }
+}
+//给页面绑定滑轮滚动事件
+if (document.addEventListener) {
+    document.addEventListener('DOMMouseScroll', function(){
+	setTimeout("scrollFunc()",5000);
+}, false);
+}
+//滚动滑轮触发scrollFunc方法
+window.onmousewheel = document.onmousewheel = scrollFunc;  
+  //滚动滑轮触发scrollFunc方法
+if(window.onmousewheel){
+    window.onmousewheel = scrollFunc;
+}else{
+    document.onmousewheel = scrollFunc;
+}
+
+
+// underscore节流函数
+var throttle = function(func, wait, options) {
+  var context, args, result;
+  var timeout = null;
+  var previous = 0;
+  if (!options) options = {};
+  var later = function() {
+    previous = options.leading === false ? 0 : _.now();
+    timeout = null;
+    result = func.apply(context, args);
+    if (!timeout) context = args = null;
+  };
+  return function() {
+    var now = _.now();
+    if (!previous && options.leading === false) previous = now;
+    var remaining = wait - (now - previous);
+    context = this;
+    args = arguments;
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      previous = now;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    } else if (!timeout && options.trailing !== false) {
+      timeout = setTimeout(later, remaining);
+    }
+    return result;
+  };
+}; 
