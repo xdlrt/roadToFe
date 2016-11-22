@@ -136,3 +136,11 @@ var throttle = function(func, wait, options) {
     return result;
   };
 }; 
+
+// 生成随机十六进制色值
+// parseInt("ffffff", 16) === 16777215 === 2^24-1
+// 1<<24 = 2^24
+// Math.random()生成(0,1)随机数
+// ~~两次取反得整数部分
+// 将所得数字转成16进制
+(~~(Math.random()*(1<<24))).toString(16)
