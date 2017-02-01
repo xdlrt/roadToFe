@@ -12,8 +12,8 @@
 此运算符可以返回一个字符串，用语说明元算数的类型，它的返回值有如下可能:
 
 **number,boolean,string,function,object,undefined**
-		
-		var str=new String("antzone"); 
+
+		var str=new String("antzone");
 		var strTwo="antzone";  
 		console.log(typeof str); //object
 		console.log(typeof strTwo);//string
