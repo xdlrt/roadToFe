@@ -2,9 +2,9 @@
 ## 2015.12.6
 
 最近项目中需要用到搜索框，并实现改变关键字实时更新搜索结果的功能。
-因此研究了一下oninput,onpropertychange,onchange的区别和用法，以及onpropertychange在ie浏览器下的一个bug。 
+因此研究了一下oninput,onpropertychange,onchange的区别和用法，以及onpropertychange在ie浏览器下的一个bug。
 
-###oninput,onpropertychange,onchange的用法
+### oninput,onpropertychange,onchange的用法
 - onchange触发事件必须满足两个条件：
  - 当前对象属性改变，并且是由键盘或鼠标事件触发的（脚本触发无效）。
  - 当前对象失去焦点(onblur)；
@@ -18,17 +18,18 @@ onpropertychange的bug
 在代码实现时，发现在响应用户onclick了textarea时，如果使用obj.className="XX";来改变textarea输入框中字体的样式，会导致在ie下会有在输入第一个字符的时候onpropertychange不会触发的bug，因此需要这样设置：obj.style.color="#000";
 
 ### demo
-
+````
 		<span>转换成大写字母：</span>
 		<input type="text" id="fname1" placeholder = "oninput" />
 		<span>转换成大写字母：</span>
 		<input type="text" id="fname2" placeholder = "onpropertychange" />
 		<span>转换成大写字母：</span>
 		<input type="text" id="fname3" placeholder = "onchange" />
+````
+
 ### js源码
-
-
-		function upperCase(x){	
+````
+		function upperCase(x){
 			var content = document.getElementById(x).value;
 			document.getElementById(x).value = content.toUpperCase();
 			// 此处document.getElementById(x).value不能换成content
@@ -48,3 +49,4 @@ onpropertychange的bug
 		input3.onchange = function(){
 			upperCase('fname3');
 		}
+````

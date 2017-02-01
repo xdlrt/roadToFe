@@ -76,7 +76,7 @@ function GetQueryString(name){
 var scrollFunc = function (e) {
 	var direct = 0;
     e = e || window.event;
-    if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件             
+    if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
         if (e.wheelDelta > 0) { //当滑轮向上滚
         }
         if (e.wheelDelta < 0) { //当滑轮向下滚动
@@ -95,7 +95,7 @@ if (document.addEventListener) {
 }, false);
 }
 //滚动滑轮触发scrollFunc方法
-window.onmousewheel = document.onmousewheel = scrollFunc;  
+window.onmousewheel = document.onmousewheel = scrollFunc;
   //滚动滑轮触发scrollFunc方法
 if(window.onmousewheel){
     window.onmousewheel = scrollFunc;
@@ -135,7 +135,7 @@ var throttle = function(func, wait, options) {
     }
     return result;
   };
-}; 
+};
 
 // 生成随机十六进制色值
 // parseInt("ffffff", 16) === 16777215 === 2^24-1
@@ -143,4 +143,16 @@ var throttle = function(func, wait, options) {
 // Math.random()生成(0,1)随机数
 // ~~两次取反得整数部分
 // 将所得数字转成16进制
-(~~(Math.random()*(1<<24))).toString(16)
+var color = (~~(Math.random()*(1 << 24))).toString(16);
+
+
+// font-size --> fontSize
+// 利用正则处理
+function camelize(attr) {
+    // /\-(\w)/g 正则内的 (\w) 是一个捕获
+		// 捕获的内容对应后面 function 的 letter
+    // 意思是将 匹配到的 -x 结构的 x 转换为大写的 X
+    return attr.replace(/\-(\w)/g, function(all, letter) {
+        return letter.toUpperCase();
+    });
+}

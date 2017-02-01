@@ -4,15 +4,30 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-		p{
+		.demo{
 			width: 300px;
 			overflow: hidden;
-			white-space: nowrap;
 			text-overflow: ellipsis;
+		}
+		.demo1{
+			white-space: nowrap;
+		}
+		.demo2{
+			display: -webkit-box;
+			/* 控制行数 */
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
 		}
 	</style>
 </head>
 <body>
-	<p>把我隐藏了吧把我隐藏了吧把我隐藏了吧把我隐藏了吧</p>
+	<p class="demo demo1">把我隐藏了吧把我隐藏了吧把我隐藏了吧把我隐藏了吧</p>
+	<p class="demo demo2">
+		把我隐藏了吧把我隐藏了吧把我隐藏了吧把我隐藏了吧
+		把我隐藏了吧把我隐藏了吧把我隐藏了吧把我隐藏了吧
+		把我隐藏了吧把我隐藏了吧把我隐藏了吧把我隐藏了吧
+		把我隐藏了吧把我隐藏了吧把我隐藏了吧把我隐藏了吧
+		把我隐藏了吧把我隐藏了吧把我隐藏了吧把我隐藏了吧
+	</p>
 </body>
 </html>
