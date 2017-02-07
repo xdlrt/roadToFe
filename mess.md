@@ -223,3 +223,153 @@ body{
         }
     }
 ````
+
+@ --------------------------------------中文字体的英文名称
+@ 宋体      SimSun
+@ 黑体      SimHei
+@ 微信雅黑   Microsoft Yahei
+@ 微软正黑体 Microsoft JhengHei
+@ 新宋体    NSimSun
+@ 新细明体  MingLiU
+@ 细明体    MingLiU
+@ 标楷体    DFKai-SB
+@ 仿宋     FangSong
+@ 楷体     KaiTi
+@ 仿宋_GB2312  FangSong_GB2312
+@ 楷体_GB2312  KaiTi_GB2312  
+@
+@ 说明：中文字体多数使用宋体、雅黑，英文用Helvetica
+
+body { font-family: Microsoft Yahei,SimSun,Helvetica; }
+
+美化表单元素
+//一、使用appearance改变webkit浏览器的默认外观
+input,select { -webkit-appearance:none; appearance: none; }
+
+//二、winphone下，使用伪元素改变表单元素默认外观
+//1.禁用select默认箭头，::-ms-expand修改表单控件下拉箭头，设置隐藏并使用背景图片来修饰
+select::-ms-expand { display:none; }
+
+//2.禁用radio和checkbox默认样式，::-ms-check修改表单复选框或单选框默认图标，设置隐藏并使用背景图片来修饰
+input[type=radio]::-ms-check,
+input[type=checkbox]::-ms-check { display:none; }
+
+//3.禁用pc端表单输入框默认清除按钮，::-ms-clear修改清除按钮，设置隐藏并使用背景图片来修饰
+input[type=text]::-ms-clear,
+input[type=tel]::-ms-clear,
+input[type=number]::-ms-clear { display:none; }
+
+超实用的CSS样式
+//去掉webkit的滚动条——display: none;
+//其他参数
+::-webkit-scrollba //滚动条整体部分
+::-webkit-scrollbar-thumb   //滚动条内的小方块
+::-webkit-scrollbar-track   //滚动条轨道
+::-webkit-scrollbar-button  //滚动条轨道两端按钮
+::-webkit-scrollbar-track-piece  //滚动条中间部分，内置轨道
+::-webkit-scrollbar-corner       //边角，两个滚动条交汇处
+::-webkit-resizer            //两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
+
+// 禁止长按链接与图片弹出菜单
+a,img { -webkit-touch-callout: none }    
+
+// 禁止ios和android用户选中文字
+html,body {-webkit-user-select:none; user-select: none; }
+
+// 改变输入框placeholder的颜色值
+::-webkit-input-placeholder { /* WebKit browsers */
+color: #999; }
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+color: #999; }
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+color: #999; }
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+color: #999; }
+input:focus::-webkit-input-placeholder{ color:#999; }
+
+// android上去掉语音输入按钮
+input::-webkit-input-speech-button {display: none}
+
+屏幕旋转的事件和样式
+//JS处理
+function orientInit(){
+    var orientChk = document.documentElement.clientWidth > document.documentElement.clientHeight?'landscape':'portrait';
+    if(orientChk =='lapdscape'){
+        //这里是横屏下需要执行的事件
+    }else{
+        //这里是竖屏下需要执行的事件
+    }
+}
+
+orientInit();
+window.addEventListener('onorientationchange' in window?'orientationchange':'resize', function(){
+    setTimeout(orientInit, 100);
+},false)    
+
+//CSS处理
+//竖屏时样式
+@media all and (orientation:portrait){   }
+//横屏时样式
+@media all and (orientation:landscape){   }
+
+audio元素和video元素在ios和andriod中无法自动播放
+//音频，写法一
+<audio src="music/bg.mp3" autoplay loop controls>你的浏览器还不支持哦</audio>
+
+//音频，写法二
+<audio controls="controls">
+    <source src="music/bg.ogg" type="audio/ogg"></source>
+    <source src="music/bg.mp3" type="audio/mpeg"></source>
+    优先播放音乐bg.ogg，不支持在播放bg.mp3
+</audio>
+
+//JS绑定自动播放（操作window时，播放音乐）
+$(window).one('touchstart', function(){
+    music.play();
+})
+
+//微信下兼容处理
+document.addEventListener("WeixinJSBridgeReady", function () {
+    music.play();
+}, false);
+
+//小结
+//1.audio元素的autoplay属性在IOS及Android上无法使用，在PC端正常
+//2.audio元素没有设置controls时，在IOS及Android会占据空间大小，而在PC端Chrome是不会占据任何空间
+
+重力感应事件
+// 运用HTML5的deviceMotion，调用重力感应事件
+if(window.DeviceMotionEvent){
+    document.addEventListener('devicemotion', deviceMotionHandler, false)
+}   
+
+var speed = 30;
+var x = y = z = lastX = lastY = lastZ = 0;
+function deviceMotionHandler(eventData){
+    var acceleration = event.accelerationIncludingGravity;
+    x = acceleration.x;
+    y = acceleration.y;
+    z = acceleration.z;
+    if(Math.abs(x-lastX)>speed || Math.abs(y-lastY)>speed || Math.abs(z-lastZ)>speed ){
+        //这里是摇动后要执行的方法
+        yaoAfter();
+    }
+    lastX = x;
+    lastY = y;
+    lastZ = z;
+}
+
+function yaoAfter(){
+    //do something
+}
+
+渲染优化
+//1.禁止使用iframe（阻塞父文档onload事件）
+//2.禁止使用gif图片实现loading效果（降低CPU消耗，提升渲染性能）
+//使用CSS3代码代替JS动画；
+//开启GPU加速；
+//使用base64位编码图片(不小图而言，大图不建议使用)
+    // 对于一些小图标，可以使用base64位编码，以减少网络请求。但不建议大图使用，比较耗费CPU。小图标优势在于：
+    //1.减少HTTP请求；
+    //2.避免文件跨域；
+    //3.修改及时生效；
