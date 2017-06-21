@@ -139,7 +139,10 @@ var throttle = function (func, wait, options) {
 // parseInt("ffffff", 16) === 16777215 === 2^24-1
 // 1<<24 = 2^24
 // Math.random()生成(0,1)随机数
-// ~~两次取反得整数部分,相当于parseInt
+// ~~两次取反得整数部分
+// ~ 会返回32位整数，这是 ~~ 能工作的根本原因。
+// 因为位运算速度很快，所以 ~~ 经常作为Math.floor() 的快速实现。
+// parseInt 在实际使用过程中需要注意进制的问题，比如 parseInt('011') 并不是我们一般期望的结果。
 // 将所得数字转成16进制
 var color = (~~(Math.random() * (1 << 24))).toString(16);
 
