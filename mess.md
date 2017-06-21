@@ -1,8 +1,11 @@
 # 学习积累
-### 平时学到的一些知识暂时记录下来，之后整理。
+## 平时学到的一些知识暂时记录下来，之后整理。
 
-- ### meta标签
+### meta标签
+```css
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+```
+
 width - viewport的宽度
 height - viewport的高度
 initial-scale - 初始的缩放比例
@@ -10,130 +13,73 @@ user-scalable - 用户是否可以手动缩放
 minimum-scale - 允许用户缩放到的最小比例
 maximum-scale - 允许用户缩放到的最大比例
 
+```css
 <meta name="format-detection" content="telephone=no"/>
 <meta name="format-detection" content="email=no"/>
+```
+
 content 里面的参数：telephone=no 是禁止浏览器自动识别手机号码，email=no 是禁止浏览器自动识别Email。
 
-		body {
-   			font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; /*使用无衬线字体*/
-		}
+```css
+body {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; /*使用无衬线字体*/
+}
+```
 
-- ### 定义苹果图标
+### 定义苹果图标
 
 在网站文件根目录放一个 apple-touch-icon.png 文件，苹果设备保存网站为书签或桌面快捷方式时，就会使用这个文件作为图标，文件尺寸建议为：180px × 180px。
 
-- ### 自定义favicon：
+### 自定义favicon：
+```css
+<link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+```
 
-		<link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
-- ### 定义浏览器点击行为：
+### 定义浏览器点击行为：
+```css
+<a href="tel:020-10086">打电话给:020-10086</a>
+<a href="sms:10086">发短信给: 10086</a>
+<a href="mailto:me@22278.club">发送邮件: me@22278.club</a>
+```
 
-		<a href="tel:020-10086">打电话给:020-10086</a>
-		<a href="sms:10086">发短信给: 10086</a>
-		<a href="mailto:me@22278.club">发送邮件: me@22278.club</a>
-- ### 定义上传文件类型和格式
+### 定义上传文件类型和格式
+```css
+<input type=file accept="image/*">
+```
 
-		<input type=file accept="image/*">
 上面的文件上传框中，accept 可以限制上传文件的类型，参数为 image/\* 是所有图片类型，点击会弹出图库，也可以指定图片格式，参数设置成 image/png 则可以限制图片类型为png；参数如果为 video/* 则是选择视频的意思；accept 还可以设置多个文件格式，语法为 accept="image/gif, image/jpeg" ；
-- ### js绑定onclick事件：
-注意是**onclick**不是**onClick**。
-		var link = document.getElementsByTagName('a');
-		for(var i = 0;i<link.length;i++){
-			link[i].onclick = function(){
-				function XXX();
-			}
-		}
-或者在标签中，如
 
-		<a href = "##" onclick = "functionName()"></a>
-又或者使用W3C dom中的addEventListener()方法，如
-
-		node.addEventListener("click", functionName, captureFlag);
-方法的第一个参数是声明事件类型的字符串（不带"on"前缀），比如click，mousedown，和keypress。
-第二个参数是函数引用，**不能加括号**。
-第三个参数是一个 Boolean 值，指明该结点是否以DOM中的捕捉模式来侦听事件。对于一个典型的事件侦听器来说，第三个参数应该为false（假）。
-IE中只能用attachEvent即node.attachEvent(type, listener);
-node： dom节点 。
-type： 字符串，事件名称，含“on”，比如“onclick”、“onmouseover”、“onkeydown”等。
-listener ：实现了 EventListener 接口或者是 JavaScript 中的函数。
-- ### rem
+### rem
 相对于根元素的字体大小,css中为html设置
+```css
+html {
+    font-size:10px;
+}
+```
 
-		html{font-size:10px;}
 即1rem = 10px
-- ### focus事件和blur事件
 
-		link[i].onfocus = function(){
-				function XXX();
-			}
-		link[i].blur = function(){
-				function XXX();
-			}
-- ### window.onload
-window.onload是在dom文档树和所有文件加载完之后执行一个函数。
-
-- ### json2html jquery实现
-
-		var json ={
-    	"title":"xxx",
-    	"context":"demodemodemo",
-    	"author":"ringotc"
-		}
-
-		$('<div class="post"> <h1>'+json.title+'</h1> <div class="context">'+json.context+'</div> <p>'+json.author+'</p> </div>').append('body')
-- ### 清除浮动
-父级元素后加
-
-		a:after {
-			display: block;
-			clear: both;
-			width: 0;
-			height: 0;
-			visibility: hidden;
-			overflow: hidden;
-			content: " ";
-		}
-
-- ### 溢出滚动
-CSS中"overflow:scroll"默认是左右，上下都滚动
-如果左右没有超出内容时，用overflow:auto;
-如果左右有超出内容，用overflow-x: hidden;
-
-- ### ifame隐藏，解决上传刷新的问题。（未测试）
-
-- ### 遮罩层半透明
-如果遮罩层中有其它元素，可以只设置background-color的第四个参数使背景实现半透明。
-如果没有，可以直接设置opacity的值。
-
-- ### 模拟input
-把原始input的opacity值设置为0；
-
-title: 琐碎的总结
-date: 2016-03-25 00:00:00
-tags:
-categories: 折腾
----
-一些平时遇到的小问题和小技巧，比较简短，总结在一起。
-<!-- more -->
-## 在高版本IE浏览器中`<input type="text">`的问题。
+### 在高版本IE浏览器中`<input type="text">`的问题。
 会自动生成一个小叉号，方便用户清空数据，但是一般我们会用js实现，所以显得有些画蛇添足了。可以用微软特有的属性进行清除。
-````
+```css
 input::-ms-clear{
-	display:none;
+    display:none;
 }
-````
+```
 类似的有`<input type="password">`会出现一个眼睛样式的图标，可以以如下代码清除：
-````
+```css
 input::-ms-reveal{
-	display:none;
+    display:none;
 }
-````
+```
 ## 消除chrome自动填充表单的黄色背景
 通过查看开发者工具发现原因是chrome的autofill这个私有属性为input设置了背景色等一系列属性。
-````
+```css
 input:-webkit-autofill {
-     -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
-````
+```
+
 ## 按钮的一个小小的浏览器差异
 请始终为button规定 type 属性。Internet Explorer的默认类型是 "button",而其他浏览器中（包括 W3C 规范）的默认值是"submit"。
 
@@ -152,15 +98,15 @@ input:-webkit-autofill {
 
 ## 清除浮动
 父级元素后加
-````
+````css
 a:after {
-	display: block;
-	clear: both;
-	width: 0;
-	height: 0;
-	visibility: hidden;
-	overflow: hidden;
-	content: " ";
+    display: block;
+    clear: both;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    content: " ";
 }
 ````
 
@@ -169,132 +115,105 @@ CSS中`overflow:scroll`默认是左右，上下都滚动
 如果左右没有超出内容时，用`overflow:auto`
 如果左右有超出内容，用`overflow-x: hidden`
 
-## meta标签
-````
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-````
-width - viewport的宽度
-height - viewport的高度
-initial-scale - 初始的缩放比例
-user-scalable - 用户是否可以手动缩放
-minimum-scale - 允许用户缩放到的最小比例
-maximum-scale - 允许用户缩放到的最大比例
-````
-<meta name="format-detection" content="telephone=no"/>
-<meta name="format-detection" content="email=no"/>
-````
-content 里面的参数：telephone=no 是禁止浏览器自动识别手机号码，email=no 是禁止浏览器自动识别Email。
-````
-body{
-	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; /*使用无衬线字体*/
-}
-````
-## 定义苹果图标
-
-在网站文件根目录放一个`apple-touch-icon.png`文件，苹果设备保存网站为书签或桌面快捷方式时，就会使用这个文件作为图标，文件尺寸建议为：180px × 180px。
-
-## 自定义favicon：
-````
-<link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
-````
-## 定义浏览器点击行为：
-````
-<a href="tel:020-10086">打电话给:020-10086</a>
-<a href="sms:10086">发短信给: 10086</a>
-<a href="mailto:me@22278.club">发送邮件: me@22278.club</a>
-````
-
-## 发送验证码倒计时
-````
-	var wait = 30;
-    function countDown(button) {
-        if (button.html() == '0s后重新发送') {
-            button.prop("disabled", false);
-            button.html("发送验证码");
-            wait = 30;
-        } else {
-            button.prop("disabled", true);
-            button.html(wait + 's后重新发送');
-            wait--;
-            setTimeout(function() {
-                countDown(button);
-            },
-            1000);
-        }
-    }
-````
-
-@ --------------------------------------中文字体的英文名称
-@ 宋体      SimSun
-@ 黑体      SimHei
-@ 微信雅黑   Microsoft Yahei
-@ 微软正黑体 Microsoft JhengHei
+### 中文字体
+```
+@ 宋体    SimSun
+@ 黑体    SimHei
+@ 微信雅黑    Microsoft Yahei
+@ 微软正黑体    Microsoft JhengHei
 @ 新宋体    NSimSun
-@ 新细明体  MingLiU
+@ 新细明体    MingLiU
 @ 细明体    MingLiU
 @ 标楷体    DFKai-SB
-@ 仿宋     FangSong
-@ 楷体     KaiTi
-@ 仿宋_GB2312  FangSong_GB2312
-@ 楷体_GB2312  KaiTi_GB2312  
+@ 仿宋    FangSong
+@ 楷体    KaiTi
+@ 仿宋_GB2312    FangSong_GB2312
+@ 楷体_GB2312    KaiTi_GB2312  
 @
 @ 说明：中文字体多数使用宋体、雅黑，英文用Helvetica
+```
 
-body { font-family: Microsoft Yahei,SimSun,Helvetica; }
-
-美化表单元素
-//一、使用appearance改变webkit浏览器的默认外观
+### 美化表单元素
+- 使用appearance改变webkit浏览器的默认外观
+```css
 input,select { -webkit-appearance:none; appearance: none; }
+```
 
-//二、winphone下，使用伪元素改变表单元素默认外观
-//1.禁用select默认箭头，::-ms-expand修改表单控件下拉箭头，设置隐藏并使用背景图片来修饰
-select::-ms-expand { display:none; }
-
-//2.禁用radio和checkbox默认样式，::-ms-check修改表单复选框或单选框默认图标，设置隐藏并使用背景图片来修饰
+- 禁用radio和checkbox默认样式，::-ms-check修改表单复选框或单选框默认图标，设置隐藏并使用背景图片来修饰
+```css
 input[type=radio]::-ms-check,
 input[type=checkbox]::-ms-check { display:none; }
+```
 
-//3.禁用pc端表单输入框默认清除按钮，::-ms-clear修改清除按钮，设置隐藏并使用背景图片来修饰
+- 禁用pc端表单输入框默认清除按钮，::-ms-clear修改清除按钮，设置隐藏并使用背景图片来修饰
+```css
 input[type=text]::-ms-clear,
 input[type=tel]::-ms-clear,
 input[type=number]::-ms-clear { display:none; }
+```
 
-超实用的CSS样式
-//去掉webkit的滚动条——display: none;
+### 去掉webkit的滚动条
+
+```css
 //其他参数
-::-webkit-scrollba //滚动条整体部分
+::-webkit-scrollbar //滚动条整体部分
 ::-webkit-scrollbar-thumb   //滚动条内的小方块
 ::-webkit-scrollbar-track   //滚动条轨道
 ::-webkit-scrollbar-button  //滚动条轨道两端按钮
 ::-webkit-scrollbar-track-piece  //滚动条中间部分，内置轨道
 ::-webkit-scrollbar-corner       //边角，两个滚动条交汇处
 ::-webkit-resizer            //两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
+```
 
-// 禁止长按链接与图片弹出菜单
-a,img { -webkit-touch-callout: none }    
 
-// 禁止ios和android用户选中文字
-html,body {-webkit-user-select:none; user-select: none; }
+### 禁止长按链接与图片弹出菜单
+```css
+a,img {
+    -webkit-touch-callout: none
+}
+```
 
-// 改变输入框placeholder的颜色值
-::-webkit-input-placeholder { /* WebKit browsers */
-color: #999; }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-color: #999; }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-color: #999; }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-color: #999; }
-input:focus::-webkit-input-placeholder{ color:#999; }
+### 禁止ios和android用户选中文字
+```css
+html,body {
+    -webkit-user-select:none;
+    user-select: none;
+}
+```
 
-// android上去掉语音输入按钮
-input::-webkit-input-speech-button {display: none}
+### 改变输入框placeholder的颜色值
+```css
+::-webkit-input-placeholder { 
+    color: #999;
+}
+:-moz-placeholder {
+    color: #999;
+}
+::-moz-placeholder {
+    color: #999;
+}
+:-ms-input-placeholder {
+    color: #999;
+}
+input:focus::-webkit-input-placeholder{
+    color:#999;
+}
+```
 
-屏幕旋转的事件和样式
+### android上去掉语音输入按钮
+```css
+input::-webkit-input-speech-button {
+    display: none
+}
+```
+
+
+### 屏幕旋转的事件和样式
+```js
 //JS处理
 function orientInit(){
-    var orientChk = document.documentElement.clientWidth > document.documentElement.clientHeight?'landscape':'portrait';
-    if(orientChk =='lapdscape'){
+    var orientChk = document.documentElement.clientWidth > document.documentElement.clientHeight ? 'landscape' : 'portrait';
+    if(orientChk == 'lapdscape'){
         //这里是横屏下需要执行的事件
     }else{
         //这里是竖屏下需要执行的事件
@@ -302,17 +221,20 @@ function orientInit(){
 }
 
 orientInit();
-window.addEventListener('onorientationchange' in window?'orientationchange':'resize', function(){
+window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', function () {
     setTimeout(orientInit, 100);
-},false)    
+}, false);
 
 //CSS处理
 //竖屏时样式
 @media all and (orientation:portrait){   }
 //横屏时样式
 @media all and (orientation:landscape){   }
+```
 
-audio元素和video元素在ios和andriod中无法自动播放
+### audio元素和video元素在ios和andriod中无法自动播放
+
+```js
 //音频，写法一
 <audio src="music/bg.mp3" autoplay loop controls>你的浏览器还不支持哦</audio>
 
@@ -332,44 +254,8 @@ $(window).one('touchstart', function(){
 document.addEventListener("WeixinJSBridgeReady", function () {
     music.play();
 }, false);
+```
 
-//小结
-//1.audio元素的autoplay属性在IOS及Android上无法使用，在PC端正常
-//2.audio元素没有设置controls时，在IOS及Android会占据空间大小，而在PC端Chrome是不会占据任何空间
-
-重力感应事件
-// 运用HTML5的deviceMotion，调用重力感应事件
-if(window.DeviceMotionEvent){
-    document.addEventListener('devicemotion', deviceMotionHandler, false)
-}   
-
-var speed = 30;
-var x = y = z = lastX = lastY = lastZ = 0;
-function deviceMotionHandler(eventData){
-    var acceleration = event.accelerationIncludingGravity;
-    x = acceleration.x;
-    y = acceleration.y;
-    z = acceleration.z;
-    if(Math.abs(x-lastX)>speed || Math.abs(y-lastY)>speed || Math.abs(z-lastZ)>speed ){
-        //这里是摇动后要执行的方法
-        yaoAfter();
-    }
-    lastX = x;
-    lastY = y;
-    lastZ = z;
-}
-
-function yaoAfter(){
-    //do something
-}
-
-渲染优化
-//1.禁止使用iframe（阻塞父文档onload事件）
-//2.禁止使用gif图片实现loading效果（降低CPU消耗，提升渲染性能）
-//使用CSS3代码代替JS动画；
-//开启GPU加速；
-//使用base64位编码图片(不小图而言，大图不建议使用)
-    // 对于一些小图标，可以使用base64位编码，以减少网络请求。但不建议大图使用，比较耗费CPU。小图标优势在于：
-    //1.减少HTTP请求；
-    //2.避免文件跨域；
-    //3.修改及时生效；
+**小结**
+1. audio元素的autoplay属性在IOS及Android上无法使用，在PC端正常
+2. audio元素没有设置controls时，在IOS及Android会占据空间大小，而在PC端Chrome是不会占据任何空间
