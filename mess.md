@@ -259,3 +259,51 @@ document.addEventListener("WeixinJSBridgeReady", function () {
 **小结**
 1. audio元素的autoplay属性在IOS及Android上无法使用，在PC端正常
 2. audio元素没有设置controls时，在IOS及Android会占据空间大小，而在PC端Chrome是不会占据任何空间
+
+## position: sticky失效
+原因是html, body{ overflow: auto }
+最初是想实现滚动某个位置的时候导航滚定在顶部。给相关的滚动元素绑定scroll事件快速滑动的时候存在细微的抖动效果。尝试了touchmove touchend等事件、_.throttle函数节流，结果还是不顺畅。发现淘宝的淘金币页面却是丝般丝般顺滑。导致是用了什么黑科技，看下源码
+```js
+var n = $(window)
+  , i = function o(t) {
+    var e = $(t.el)
+      , i = this;
+    i.top = t.top || 0;
+    var o = "static";
+    if (e.css({
+        position: "-webkit-sticky",
+        top: i.top + "px",
+        zIndex: 1e3
+    }),
+    "boolean" != typeof t.isStatic || t.isStatic || (o = e.css("position")),
+    "string" == typeof t.addStickyClass && (i.addStickyClass = t.addStickyClass),
+    e.length > 0 && e.css("position").indexOf("sticky") == -1) {
+        var r, a;
+        !function() {
+            var t = function s() {
+                n.scrollTop() > i.ScrollTop ? (r.show(),
+                i.addStickyClass && e.addClass(i.addStickyClass),
+                e.css("position", "fixed")) : (r.hide(),
+                i.addStickyClass && e.removeClass(i.addStickyClass),
+                e.css("position", o))
+            };
+            i.nav = e,
+            i.setPlaceHolder(),
+            r = i.placeHolder,
+            i.ScrollTop = e.offset().top,
+            setTimeout(function() {
+                i.ScrollTop = e.offset().top - i.top
+            }, 10),
+            a = window.requestAnimationFrame || window.webkitRequestAnimationFrame || function(t) {
+                setTimeout(t, 1 / 60 * 1e3)
+            }
+            ,
+            n.on("scroll", function() {
+                a(t)
+            })
+        }()
+    }
+};
+```
+原来顺滑用的是sticky。然而由于项目之前用的是html,body{overflow: hidden;},改成了html, body{ overflow: auto }。结果我修改代码用上sticky就悲剧了。
+已知的几个问题，外层overflow设置成auto,scroll,hidden会失效。 -http://wenbinzhou.lofter.com/post/65a3d_6f55339
